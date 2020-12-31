@@ -1,10 +1,11 @@
-# NFPLUS_Calendar
+# NFPLUS_Video_Player
 南方+ canvas 视频播放器
 
 ## 题目
 1. canvas播放器
 2. 实现播放器基本功能
 3. 对每一帧进行处理，比如添加南方+ logo
+4. 其他自行发挥
 
 ## 代码管理
 1. 请自行拉一个新的分支：比如 zhangguimei-202012 的格式；将本地代码上传到该分支上
