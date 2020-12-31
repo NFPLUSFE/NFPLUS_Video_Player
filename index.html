@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #c2 {
+          background-image: url(foo.png);
+          background-repeat: no-repeat;
+        }
+        #video{
+          display: none;
+        }
+        .bomb{
+          width: 360px;
+/*          border: ;*/
+          display: flex;
+
+        }
+        .bomb #playBtn {
+          width: 60px;
+          height: 30px;
+          border: 2px;
+          border-radius: 2px 0 0 2px; 
+          background: #00a1d6;
+          color: #fff;
+        } 
+        .bomb .bomb-wrap {
+          width: 200px;
+          height: 24px;
+
+        }
+        .bomb #submit {
+          width: 60px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          box-sizing: border-box;
+          border-radius: 0 2px 2px 0; 
+          background: #00a1d6;
+          color: #fff;
+        }
+        /*进度条代码*/
+        .show{
+            opacity: 1;
+        }
+        .hide{
+            opacity: 0;
+        }
+        #progressWrap{
+            background-color: black;
+            width: 600px;
+            height: 15px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+        #playProgress{
+            background-color: #00a1d6;
+            width: 0px;
+            height: 15px;
+            border-right: 2px solid blue;
+        }
+        #showProgress{
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 25px;
+        }
+    </style>
+</head>
+
+<body id="body">
+  <img src="./logo.png" id="img-south" style="display: none;">
+	<video src="./video.ogv" id="video" controls="true" muted></video>	
+  <div>
+    <canvas id="canvas" width="640" height="384"></canvas>
+  </div>
+  <div class=""></div>
+  <div class="bomb">
+    <button id="playBtn">暂停</button>
+    <input type="text" class="bomb-wrap" placeholder="发个弹幕吧~">
+    <div id="submit">提交</div>
+  </div>
+
+  <!-- 进度条 -->
+  <div id="videoContainer">
+            <span id="showProgress">0</span>  
+          <!-- 进度百分之多少的显示 -->
+            <div id="progressWrap">      
+                <div id="playProgress"></div>
+            </div>
+  </div>
+</body>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="component.js"></script>
+    <script src="main.js"></script>
+    
+    <script>
+  		canvasDrawVideo.onLoad('canvas') //main.js中的变量canvasDrawVideo的函数 加载后直接执行
+      $('#submit').click(function() {//jquery语法添加点击事件 //点击发送后便触发data事件
+        var data = $('input').val()//获取输入框的值
+          Event.trigger('data', { //意思是触发执行data事件，第一个参数是指定元素上要触发的事件。
+            value: data,
+          })
+      })
+    </script>
+</html>
